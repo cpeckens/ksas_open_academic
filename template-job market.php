@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Hammond Society
+Template Name: Job Market Candidates
 */
 ?>	
 

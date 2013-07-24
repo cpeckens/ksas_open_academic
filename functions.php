@@ -155,5 +155,21 @@ function delete_academic_transients($post_id) {
 	}
 }
 	add_action('save_post','delete_academic_transients');
+	
+/**********ADD PEOPLE TO SITEMAPS******************/
+function my_sitemap_replacement ($content) {
+	//return $content . '<empty>Nothing here</empty>';
+	$totalposts = apply_filters('simple_sitemaps-totals_soft_limit', (defined('SIMPLE_SITEMAPS_POST_SOFT_LIMIT') ? SIMPLE_SITEMAPS_POST_SOFT_LIMIT : 50));
+	$latestposts = $totalposts ? get_posts( 'post_type=people&numberposts=' . $totalposts . '&orderby=date&order=DESC' ) : array();
+	foreach ( $latestposts as $post ) {
+		$content .= "	<url>\n";
+		$content .= '		<loc>' . get_permalink( $post->ID ) . "</loc>\n";
+		$content .= '		<lastmod>' . mysql2date( 'Y-m-d\TH:i:s', $post->post_modified_gmt ) . "+00:00</lastmod>\n";
+		$content .= '		<priority>' . number_format( 1, 1 ) . "</priority>\n";
+		$content .= "	</url>\n";
+	}
+	return $content;
+}
+add_filter('simple_sitemaps-generated_urlset', 'my_sitemap_replacement');
 
 ?>
