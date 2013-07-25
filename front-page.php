@@ -76,6 +76,6 @@
 	
 		
 	</div>	<!-- End main content (left) section -->
-<?php locate_template('parts-sidebar.php', true, false); ?>	
+<?php locate_template('parts-sidebar-homepage.php', true, false); ?>	
 </div> <!-- End #landing -->
 <?php get_footer(); ?>

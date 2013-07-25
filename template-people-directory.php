@@ -46,8 +46,9 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 		'pagename' => 'staff',
 	));
 ?>
-<div class="row wrapper radius10">
-<div class="twelve columns">
+<?php get_header(); ?>
+<div class="row sidebar_bg radius10" id="page">
+	<div class="nine columns wrapper radius-left offset-topgutter push-three">	
 	<?php locate_template('parts-nav-breadcrumbs.php', true, false); ?>	
 	<section class="row">
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -228,5 +229,6 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 </ul>
 </section>
 </div>
+<?php locate_template('parts-sidebar-nav.php', true, false); ?>
 </div> <!-- End content wrapper -->
 <?php get_footer(); ?>

@@ -20,6 +20,7 @@
   <!-- CSS Files: All pages -->
   <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/stylesheets/min.foundation.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/stylesheets/flagship.css">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/stylesheets/pilot.css">
   <script async type="text/javascript" src="http://fast.fonts.com/jsapi/c5f514c7-d786-4bfb-9484-ea6c8fbd263f.js"></script>
   <!-- CSS Files: Conditionals -->
   
@@ -36,7 +37,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<header>
+	<header id="container-head">
 		<div class="row show-for-small">
 			<div class="four columns centered blue_bg">
 			<div class="mobile-logo centered"><a href="<?php echo network_site_url(); ?>">Home</a></div>
@@ -82,11 +83,12 @@
 		<div class="row hide-for-print">
 			<?php wp_nav_menu( array( 
 				'theme_location' => 'main_nav', 
-				'menu_class' => '', 
+				'menu_class' => 'nav-bar', 
 				'container' => 'nav',
 				'container_id' => 'main_nav', 
 				'container_class' => 'twelve columns',
-				'depth' => 2,
-				'walker'=> new page_id_classes )); ?> 
+				'fallback_cb' => 'foundation_page_menu',
+				'walker' => new foundation_navigation(),
+				'depth' => 3  )); ?> 
 		</div>
 		</header>

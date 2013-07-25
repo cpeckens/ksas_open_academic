@@ -23,8 +23,7 @@ function academic_flagship_theme_support() {
 	add_image_size( 'directory', 90, 130, true );
 	add_theme_support( 'automatic-feed-links' ); // rss thingy
 	$bg_args = array(
-		'default-color'          => '#000000',
-		'default-image'          => get_template_directory_uri() . '/assets/images/bg-default.jpg',
+		'default-color'          => '#e2e1df',
 		'wp-head-callback'       => '_custom_background_cb',
 		'admin-head-callback'    => '',
 		'admin-preview-callback' => ''
