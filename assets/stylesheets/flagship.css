@@ -516,7 +516,9 @@ nav ul {
 	cursor:default;
 }
 
-#main_nav > li:hover {
+#main_nav > li:hover,
+#main_nav li.current_page_ancestor,
+#main_nav li.current_page_parent {
 	background:#3c6a98;
 }
 
@@ -952,6 +954,18 @@ ul.breadcrumbs a {
 	float:left;
 	padding:0;
 	color:#ccc;
+}
+
+#nav-break {
+background: #333;
+background: -webkit-linear-gradient(top, rgba(102, 102, 102, 0.91) 0%, rgba(50, 50, 50, 0.91) 31%, rgba(47, 47, 47, 0.82) 47%, rgba(0, 0, 0, 0.16) 50%, rgba(0, 0, 0, 0.29) 95%, rgba(0, 0, 0, 0.29) 100%);
+background: -o-linear-gradient(top, rgba(102, 102, 102, 0.91) 0%, rgba(50, 50, 50, 0.91) 31%, rgba(47, 47, 47, 0.82) 47%, rgba(0, 0, 0, 0.16) 50%, rgba(0, 0, 0, 0.29) 95%, rgba(0, 0, 0, 0.29) 100%);
+background: -ms-linear-gradient(top, rgba(102, 102, 102, 0.91) 0%, rgba(50, 50, 50, 0.91) 31%, rgba(47, 47, 47, 0.82) 47%, rgba(0, 0, 0, 0.16) 50%, rgba(0, 0, 0, 0.29) 95%, rgba(0, 0, 0, 0.29) 100%);
+background: -moz-linear-gradient(top, rgba(102, 102, 102, 0.91) 0%, rgba(50, 50, 50, 0.91) 31%, rgba(47, 47, 47, 0.82) 47%, rgba(0, 0, 0, 0.16) 50%, rgba(0, 0, 0, 0.29) 95%, rgba(0, 0, 0, 0.29) 100%);
+background: linear-gradient(to bottom, rgba(102, 102, 102, 0.91) 0%, rgba(50, 50, 50, 0.91) 31%, rgba(47, 47, 47, 0.82) 47%, rgba(0, 0, 0, 0.16) 50%, rgba(0, 0, 0, 0.29) 95%, rgba(0, 0, 0, 0.29) 100%);
+	height:27px;
+	position:relative;
+	z-index: 2;
 }
 
 /******* Footer ************/
@@ -1726,6 +1740,10 @@ p.wp-caption-text {
 	margin-top:20px;
 }
 
+#directory img {
+	border-width: 3px;
+}
+
 li.person {
 	margin-bottom:15px;
 	width:90%;
@@ -1752,7 +1770,11 @@ li.person img {
 	max-width:90px;
 	clear:left;
 	float:left;
-	margin-bottom:23px;
+	margin-bottom:5px;
+}
+
+li.person h4 {
+	color: #00337f;
 }
 
 #LibraInsideDiv .statistic,#LibraInsideDiv .author,#LibraInsideDiv .title h1 {

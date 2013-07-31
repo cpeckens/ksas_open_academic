@@ -2,7 +2,7 @@
 	$home_url = home_url();
 	$theme_option = flagship_sub_get_global_options();	
 	
-		if ( is_single()) { 
+		if ( is_singular('post') && $theme_option['flagship_sub_breadcrumbs']  == '1') { 
 			global $post;
 			$article_title = $post->post_title;
 			$article_link = $post->guid;
@@ -15,7 +15,7 @@
 				<li><a href="<?php echo $article_link; ?>"><?php echo $article_title; ?></a></li>
 			</ul>
 		</nav>	<?php } 
-
+		
 	elseif ( $theme_option['flagship_sub_breadcrumbs']  == '1' ) { 
 	wp_nav_menu( array( 
 				'container' => 'nav',

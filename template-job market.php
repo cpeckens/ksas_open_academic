@@ -23,6 +23,7 @@ if ( false === ( $job_market_query = get_transient( 'job_market_query' ) ) ) {
 	<section class="row">
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 			<h2 class="twelve columns"><?php the_title();?></h2>
+			<?php the_content(); ?>
 		<?php endwhile; endif; ?>	
 	</section>
 	<section class="row" id="fields_container">
@@ -32,7 +33,7 @@ if ( false === ( $job_market_query = get_transient( 'job_market_query' ) ) ) {
 		<?php while ($job_market_query->have_posts()) : $job_market_query->the_post(); ?>
 				<li class="person <?php echo get_the_directory_filters($post);?> <?php echo get_the_roles($post); ?>">
 					<div class="row">
-						<div class="twelve columns">
+						<div class="eleven columns">
 							<div class="row">
 							<?php if ( has_post_thumbnail()) { ?> 
 								<?php the_post_thumbnail('directory', array('class' => 'padding-five floatleft hide-for-small')); ?>
@@ -57,6 +58,10 @@ if ( false === ( $job_market_query = get_transient( 'job_market_query' ) ) ) {
 										<?php endif; ?>
 									</p>
 						<?php if ( get_post_meta($post->ID, 'ecpt_expertise', true) ) : ?><p><b>Research Interests:&nbsp;</b><?php echo get_post_meta($post->ID, 'ecpt_expertise', true); ?></p><?php endif; ?>
+						<p><?php if ( get_post_meta($post->ID, 'ecpt_thesis', true) ) : ?><b>Thesis Title: </b>"<?php echo get_post_meta($post->ID, 'ecpt_thesis', true); ?>"<?php endif; ?><?php if ( get_post_meta($post->ID, 'ecpt_job_abstract', true) ) : ?>&nbsp;- <a href="<?php echo get_post_meta($post->ID, 'ecpt_job_abstract', true); ?>">Download Abstract (PDF)</a><?php endif; ?></p>
+						<?php if ( get_post_meta($post->ID, 'ecpt_advisor', true) ) : ?><p><b>Main Advisor: </b><?php echo get_post_meta($post->ID, 'ecpt_advisor', true); ?></p><?php endif; ?>
+						<?php if ( get_post_meta($post->ID, 'ecpt_fields', true) ) : ?><p><b>Fields: </b><?php echo get_post_meta($post->ID, 'ecpt_fields', true); ?></p><?php endif; ?>
+
 						</div>
 					</div>
 				</li>

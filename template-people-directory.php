@@ -103,7 +103,7 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 		<?php } ?>
 	</section>
 	
-	<section class="row" id="fields_container">
+	<section class="row content" id="fields_container">
 		<ul class="twelve columns" id="directory">
 		<?php if($faculty_people_query->have_posts()) : ?>
 		<a name="faculty" id="faculty"></a>
@@ -114,7 +114,7 @@ if ( false === ( $staff_people_query = get_transient( 'staff_people_query' ) ) )
 						<div class="twelve columns">
 							<a href="<?php the_permalink();?>" title="<?php the_title(); ?>" class="field">
 							<?php if ( has_post_thumbnail()) { ?> 
-								<?php the_post_thumbnail('directory', array('class' => 'padding-five floatleft hide-for-small')); ?>
+								<?php the_post_thumbnail('directory', array('class' => 'floatleft hide-for-small')); ?>
 							<?php } ?>			    
 									<h4 class="no-margin"><?php the_title(); ?></h4></a>
 									<?php if ( get_post_meta($post->ID, 'ecpt_position', true) ) : ?><h6><?php echo get_post_meta($post->ID, 'ecpt_position', true); ?></h6><?php endif; ?>

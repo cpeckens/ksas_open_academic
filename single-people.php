@@ -1,7 +1,7 @@
 <?php get_header(); ?>
-<div class="row wrapper radius10" id="page" role="main">
-	<div class="twelve columns radius-left offset-topgutter">	
-		
+<div class="row sidebar_bg radius10" id="page">
+	<div class="nine columns wrapper radius-left offset-topgutter push-three">	
+		<?php locate_template('parts-nav-breadcrumbs.php', true, false); ?>	
 		<section class="content">
 			<div class="row">
 				<div class="five columns offset-by-seven">
@@ -126,5 +126,6 @@
 			<?php endwhile; endif; ?>	
 		</section>
 	</div>	<!-- End main content (left) section -->
-</div> <!-- End #page -->
+<?php locate_template('parts-sidebar-nav.php', true, false); ?>
+</div> <!-- End #landing -->
 <?php get_footer(); ?>

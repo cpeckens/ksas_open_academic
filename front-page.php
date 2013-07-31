@@ -32,7 +32,7 @@
 
 <?php endif; ?>
 
-<div class="row sidebar_bg radius10 <?php if($theme_option['flagship_sub_slider_style'] == "vertical") { ?>offset-top <?php } ?>">
+<div class="row homepage_bg <?php if($theme_option['flagship_sub_slider_style'] == "vertical") { ?>offset-top <?php } ?>">
 	<div class="eight columns wrapper <?php if($theme_option['flagship_sub_slider_style'] == "vertical") { ?>offset-top <?php } ?>toplayer">		
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 			<section>
@@ -76,6 +76,6 @@
 	
 		
 	</div>	<!-- End main content (left) section -->
-<?php locate_template('parts-sidebar-homepage.php', true, false); ?>	
+<?php locate_template('parts-homepage-sidebar.php', true, false); ?>	
 </div> <!-- End #landing -->
 <?php get_footer(); ?>

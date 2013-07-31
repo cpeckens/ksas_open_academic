@@ -2,7 +2,7 @@
 		 	<!-- Start Navigation for Sibling Pages -->	
 			<?php 
 				wp_reset_query();
-				if( is_page() ) { 
+				if( is_page() || is_singular() ) { 
 					global $post;
 						
 				        $ancestors = get_post_ancestors( $post->ID ); // Get the array of ancestors
@@ -13,8 +13,14 @@
 					        $ancestor_slug = $the_ancestor->post_name;
 					        $ancestor_title = $the_ancestor->post_title;
 				     //If there are no ancestors display a menu of children
-							if (count($ancestors) == 0 && is_front_page() == false || is_page('hammond-society') ) {
-								$page_name = $post->post_title;
+							if (count($ancestors) == 0 && is_front_page() == false || is_page('hammond-society') || is_singular('post') ) {
+								if (is_singular('people')) {
+									$page_name = 'People';
+								} elseif (is_singular('post')) { 
+									$page_name = 'About';
+								} else {
+									$page_name = $post->post_title;
+								}
 								$test_menu = wp_nav_menu( array( 
 									'theme_location' => 'main_nav', 
 									'menu_class' => 'nav',
