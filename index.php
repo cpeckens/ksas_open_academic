@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div class="row sidebar_bg radius10" id="page">
-	<div class="eight columns wrapper radius-left offset-topgutter">	
-		<?php locate_template('parts-nav-breadcrumbs.php', true, false);
+	<div class="nine columns wrapper radius-left offset-topgutter push-three">	
+		<?php locate_template('parts-nav-breadcrumbs.php', true, false); 
 		$theme_option = flagship_sub_get_global_options(); ?>	
 		<section class="content">
 		<h2><?php echo $theme_option['flagship_sub_feed_name']; ?> Archive</h2>

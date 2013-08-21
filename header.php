@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/stylesheets/min.foundation.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/stylesheets/flagship.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/stylesheets/pilot.css">
-  <script async type="text/javascript" src="http://fast.fonts.com/jsapi/c5f514c7-d786-4bfb-9484-ea6c8fbd263f.js"></script>
+  <script async type="text/javascript" src="http://fast.fonts.net/jsapi/c5f514c7-d786-4bfb-9484-ea6c8fbd263f.js"></script>
   <!-- CSS Files: Conditionals -->
   
   <!-- Modernizr and Jquery Script -->

@@ -1,10 +1,10 @@
 	<nav class="three columns hide-for-print pull-nine" role="navigation" id="sidebar"> <!-- Begin Sidebar -->
 		 	<!-- Start Navigation for Sibling Pages -->	
 			<?php 
-				wp_reset_query();
+				wp_reset_query(); 
 				if( is_page() || is_singular() ) { 
 					global $post;
-						
+						$the_id = $post->ID;
 				        $ancestors = get_post_ancestors( $post->ID ); // Get the array of ancestors
 				        	//Get the top-level page slug for sidebar/widget content conditionals
 							$ancestor_id = ($ancestors) ? $ancestors[count($ancestors)-1]: $post->ID;
@@ -13,10 +13,10 @@
 					        $ancestor_slug = $the_ancestor->post_name;
 					        $ancestor_title = $the_ancestor->post_title;
 				     //If there are no ancestors display a menu of children
-							if (count($ancestors) == 0 && is_front_page() == false || is_page('hammond-society') || is_singular('post') ) {
+							if (count($ancestors) == 0 && is_front_page() == false || is_page('hammond-society') || is_singular() ||is_page('news-archive')) {
 								if (is_singular('people')) {
 									$page_name = 'People';
-								} elseif (is_singular('post')) { 
+								} elseif (is_singular('post') || is_page('news-archive') || is_singular('profile') || is_singular('bulletinboard')) { 
 									$page_name = 'About';
 								} else {
 									$page_name = $post->post_title;
@@ -46,7 +46,23 @@
 									'depth' => 2				
 								));
 							}
-			} ?>
+			} 
+			
+			else { ?>
+				<div class="offset-gutter" id="sidebar_header">
+					<h5 class="grey">Also in <span class="black bold">About</span></h5>
+				</div>
+			<?php
+						wp_nav_menu( array( 
+									'theme_location' => 'main_nav', 
+									'menu_class' => 'nav', 
+									'container_class' => 'offset-gutter',
+									'submenu' => 'About',
+									'depth' => 2				
+								));
+				}
+			?>
+			
 		<!-- End Navigation for Sibling Pages -->
 	
 		<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('under-nav-sb') ) : ?><?php endif; ?>

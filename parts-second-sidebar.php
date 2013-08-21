@@ -24,5 +24,7 @@
 			} else { 
 				dynamic_sidebar( 'page-sb' );
 			}	
+			
+			wp_reset_query();
 			?>
 	</aside>

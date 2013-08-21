@@ -4,7 +4,7 @@ For production environment search and replace javascripts/ for javascripts/min.
 -->
 <!***********ALL PAGES**************>  
 <script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/min.foundation.js"></script> 
-<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/min.app.js"></script>
+<script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/app.js"></script>
 <script>
 var $l = jQuery.noConflict();
 $l(document).ready(function() {
