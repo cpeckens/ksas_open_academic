@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 <div class="row sidebar_bg radius10" id="page">
 	<div class="nine columns wrapper radius-left offset-topgutter push-three">	
-		<?php locate_template('parts-nav-breadcrumbs.php', true, false); ?>	
 		<section class="content">
 			<div class="row">
 				<div class="five columns offset-by-seven">
