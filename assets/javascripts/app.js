@@ -36,6 +36,17 @@ function getParameterByName(name)
     return decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
+//**********Expand All and Collapse all functions***********
+var $j = jQuery.noConflict();
+$j(".acc_expandall").toggle(function() {
+					$j(this).text("[Collapse All]").stop();
+					$j("li .content").show();
+					$j("ul.accordion li").addClass("active");
+				}, function() {
+					$j(this).text("[Expand All]").stop();
+					$j("li .content").hide();
+					$j("ul.accordion li").removeClass("active");
+				});
 
 /**************Mobile Navigation**************
 /**
