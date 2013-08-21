@@ -1,39 +1,6 @@
-<?php get_header(); ?>
-<?php
-	$theme_option = flagship_sub_get_global_options(); 
-	if ( false === ( $slider_query = get_transient( 'slider_query' ) ) ) {
-		$slider_query = new WP_Query(array(
-			'post_type' => 'slider',
-			'posts_per_page' => '5'));
-		set_transient( 'slider_query', $slider_query, 2592000 );
-	} 	
-	if ( $slider_query->have_posts() ) :
-?>
-<div class="row hide-for-mobile">
-<div id="slider" class="twelve columns radius10 no-gutter">
-
-<?php while ($slider_query->have_posts()) : $slider_query->the_post(); ?>
-<a href="<?php echo get_post_meta($post->ID, 'ecpt_urldestination', true); ?>">
-<div class="slide">
-	<?php if($theme_option['flagship_sub_slider_style'] == "vertical") { 
-		 	locate_template('parts-vertical-slider.php', true, false); 	
-		 	}
-	 elseif($theme_option['flagship_sub_slider_style'] == "horizontal") { 
-	 		locate_template('parts-horizontal-slider.php', true, false); 
-	  } ?>
-	<img src="<?php echo get_post_meta($post->ID, 'ecpt_slideimage', true); ?>" class="radius-top" />
-</div>
-</a>
-<?php endwhile; ?>
-				
-					
-</div>
-</div>
-
-<?php endif; ?>
-
-<div class="row homepage_bg <?php if($theme_option['flagship_sub_slider_style'] == "vertical") { ?>offset-top <?php } ?>">
-	<div class="eight columns wrapper <?php if($theme_option['flagship_sub_slider_style'] == "vertical") { ?>offset-top <?php } ?>toplayer">		
+<?php get_header(); locate_template('parts-slider.php', true);?>
+<div class="row homepage_bg">
+	<div class="eight columns wrapper toplayer content">		
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 			<section>
 				<?php the_content(); ?>			

@@ -26,6 +26,10 @@ strong,b,.bold {
 	font-style:normal;
 }
 
+.uppercase {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
 .iconfont {
 	font-family:'flagship-icon';
 }
@@ -43,12 +47,18 @@ p {
 	line-height:1.6em;
 }
 
-.content img {
+.content img,
+#widget img {
 	border: solid #f1f1f1 9px;
 	-webkit-box-shadow: -3px 3px 5px rgba(50, 50, 50, 0.5);
 	-moz-box-shadow:    -3px 3px 5px rgba(50, 50, 50, 0.5);
 	box-shadow:         -3px 3px 5px rgba(50, 50, 50, 0.5);
 	margin-right:10px;
+}
+
+#widget img,
+.carousel img {
+	border: solid #f1f1f1 2px;
 }
 
 h6,time {
@@ -69,6 +79,19 @@ ol {
 	margin-bottom:14px;
 }
 
+.divider,
+hr {
+	width:100%;
+	height:3px;
+	margin-bottom: 1.6em;
+	border-bottom: ridge 5px #fafafa;
+
+}
+
+.tabs.pill dd, .tabs.pill li {
+	margin-bottom: 7px;
+}
+
 /******* Reusable Classes ************/
 .wrapper {
 	padding:30px;
@@ -86,6 +109,16 @@ ol {
 	background: linear-gradient(to right,  rgb(237,237,237) 0%,rgb(237,237,237) 25%,rgb(226,225,223) 25.1%,rgb(226,225,223) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#e2e1df',GradientType=1 );
 }
+
+.homepage_bg {
+	background: rgb(226,225,223);
+	background: -moz-linear-gradient(left,  rgb(226,225,223) 0%, rgb(226,225,223) 66.0%, rgb(198,197,195) 66.1%, rgb(198,197,195) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgb(226,225,223)), color-stop(66.0%,rgb(226,225,223)), color-stop(66.1%,rgb(198,197,195)), color-stop(100%,rgb(198,197,195)));
+	background: -webkit-linear-gradient(left,  rgb(226,225,223) 0%,rgb(226,225,223) 66.0%,rgb(198,197,195) 66.1%,rgb(198,197,195) 100%);
+	background: -o-linear-gradient(left,  rgb(226,225,223) 0%,rgb(226,225,223) 66.0%,rgb(198,197,195) 66.1%,rgb(198,197,195) 100%);
+	background: -ms-linear-gradient(left,  rgb(226,225,223) 0%,rgb(226,225,223) 66.0%,rgb(198,197,195) 66.1%,rgb(198,197,195) 100%);
+	background: linear-gradient(to right,  rgb(226,225,223) 0%,rgb(226,225,223) 66.0%,rgb(198,197,195) 66.1%,rgb(198,197,195) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e1df', endColorstr='#c6c5c3',GradientType=1 );}
 
 .sidebar_bg .wrapper {
 	margin-top:0;
@@ -127,8 +160,8 @@ ol {
 	color:#999;
 }
 
-.blue_bg,#SECalendar .SECalendarEventDetails,#SECalendar .SECalendarEventDetails.color1,.color1 {
-	background:#00337f;
+.blue_bg,#SECalendar .SECalendarEventDetails,#SECalendar .SECalendarEventDetails.color1,.color1, .blueslide {
+	background:#6ca3d7;
 }
 
 .dark_blue_bg,#SECalendar .SECalendarEventDetails.color8,.color8 {
@@ -155,7 +188,7 @@ ol {
 	background:#936;
 }
 
-.yellow_bg,#SECalendar .SECalendarEventDetails.color2,.color2 {
+.yellow_bg,#SECalendar .SECalendarEventDetails.color2,.color2, .yellowslide {
 	background:#dbb003;
 }
 
@@ -167,6 +200,9 @@ ol {
 	background:#39f;
 }
 
+.button.blueslide {
+	background: #5681ab;
+}
 button,.button,.select-buttons li,.SECalendarPrevMonth,.SECalendarNextMonth {
 	border:none;
 	-webkit-border-radius:7px;
@@ -342,8 +378,7 @@ ul {
 }
 
 .panel li:before {
-	content:"\25FE";
-	font-size:20px;
+	content:"\25FC";
 	padding-right:3px;
 	vertical-align:middle;
 }
@@ -405,22 +440,6 @@ blockquote {
 blockquote,blockquote p {
 	color:#555;
 	font-size:16px;
-}
-
-blockquote:before {
-	content:"\e011";
-	font-family:'flagship-icon';
-	font-style:normal;
-	speak:none;
-	font-weight:400;
-	line-height:1;
-	-webkit-font-smoothing:antialiased;
-	font-size:80px;
-	position:absolute;
-	bottom:20%;
-	right:8%;
-	opacity:.25;
-	color:#369;
 }
 
 .wp-post-image {
@@ -1107,6 +1126,10 @@ img.featured {
 	padding-top: 35px;
 }
 
+.homepage_bg #sidebar {
+	padding-top:0;
+}
+
 #sidebar_header {
 	padding:12px 15px 10px 0;
 }
@@ -1181,8 +1204,12 @@ ul.nav ul.sub-menu {
 	color:#369;
 }
 
-.textwidget,.menu-research-links-container,.hub,.frm_form_widget .frm_forms {
+#widget article {
 	margin:0 20px 40px;
+}
+
+#widget a p {
+	color: #333;
 }
 
 .label.round {
@@ -1214,7 +1241,7 @@ ul.nav ul.sub-menu {
 
 .widget p {
 	line-height: 1.35em;
-	font-size: 85%;
+	font-size: 90%;
 }
 
 .hub h6,.ksas_books h6,.textwidget h6 {
@@ -1719,6 +1746,10 @@ p.wp-caption-text {
 	line-height:2em;
 }
 
+.single-people .tabs dd a, .single-people .tabs li a {
+	padding: 0 15px;
+}
+
 #bioTab h6 {
 	margin-bottom:20px;
 }
@@ -1813,6 +1844,14 @@ h6.pub {
 }
 
 /*******HOMEPAGE SLIDER ******/
+
+.slider-break {
+	background: rgba(0,0,0,.2);
+	margin-top: -19px;
+	height: 19px;
+	zoom: 1;
+	z-index: 10;
+}
 ul.orbit-bullets {
 	top:405px;
 	width:527px;
@@ -1840,9 +1879,9 @@ div.orbit-wrapper div.timer {
 }
 
 #caption.vertical {
-	min-height:425px;
 	position:absolute;
 	top:0;
+	z-index: 2;
 }
 
 #caption.horizontal {
@@ -1852,14 +1891,13 @@ div.orbit-wrapper div.timer {
 	padding:15px;
 }
 
-.slide summary {
-	background:#000;
-	background:rgba(0,0,0,.9);
-}
-
 .slide h6 {
 	color:#dbb003;
 	font-size:100%;
+}
+
+.slide summary {
+	z-index: 2;
 }
 
 .orbit div.orbit-slide {
@@ -1868,20 +1906,13 @@ div.orbit-wrapper div.timer {
 
 #caption.vertical .middle {
 	vertical-align:middle;
-	margin-top:45%;
-}
-
-.orbit-wrapper {
-	-webkit-border-top-right-radius:10px;
-	-moz-border-radius-topright:10px;
-	border-top-right-radius:10px;
-	-webkit-border-top-left-radius:10px;
-	-moz-border-radius-topleft:10px;
-	border-top-left-radius:10px;
+	margin: 20px;
 }
 
 .slide h5 {
 	vertical-align:top;
+	font-size: 1.4em;
+	line-height: 1.4em;
 }
 
 .slide .icon-arrow-right-2 {
@@ -1894,6 +1925,18 @@ div.orbit-wrapper div.timer {
 
 #search-results ul {
 	list-style:none;
+}
+
+div.orbit img.fluid-placeholder {
+	width:auto;
+}
+
+.orbit .orbit-slide {
+	width: 100%;
+}
+
+.orbit-wrapper {
+	min-height: 394px;
 }
 
 /******* Icons ******/
