@@ -2,7 +2,7 @@
 		 	<!-- Start Navigation for Sibling Pages -->	
 			<?php 
 				wp_reset_query();
-				if( is_page() || is_singular() ) { 
+				if( is_page() || is_singular() || is_tax() ) { 
 					global $post;
 						$the_id = $post->ID;
 				        $ancestors = get_post_ancestors( $post->ID ); // Get the array of ancestors
@@ -26,11 +26,15 @@
 									'depth' => 2				
 								));
 							}
-							elseif (count($ancestors) == 0 && is_front_page() == false || is_page('hammond-society') || is_singular() || is_page('news-archive')) {
+							elseif (count($ancestors) == 0 && is_front_page() == false || is_singular() || is_page('news-archive') || is_tax('bbtype') || is_tax('profiletype'))  {
 								if (is_singular('people')) {
 									$page_name = 'People';
-								} elseif (is_singular('post') || is_page('news-archive') || is_singular('bulletinboard') || is_singular('profile')) { 
+								} elseif (is_singular('post') || is_page('news-archive') || has_term('spotlight', 'profiletype')) { 
 									$page_name = 'About';
+								} elseif (has_term('undergrad-bb','bbtype') || has_term('undergraduate-profile','profiletype') || is_tax('profiletype', 'undergraduate-profile')) {
+									$page_name = 'Undergraduate';
+								} elseif (has_term('graduate-bb', 'bbtype') || has_term('graduate-profile', 'profiletype')) {
+									$page_name = 'Graduate';
 								} else {
 									$page_name = $post->post_title;
 								}

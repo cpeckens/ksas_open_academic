@@ -161,6 +161,11 @@ function delete_academic_open_transients($post_id) {
 		case 'bulletinboard' :
 			delete_transient('ksas_bb_undergrad_query');
 			delete_transient('ksas_bb_grad_query');
+		break;
+		case 'profile' :
+			delete_transient('ksas_profile_undergrad_query');
+			delete_transient('ksas_profile_grad_query');
+			delete_transient('ksas_profile_spotlight_query');
 	}
 }
 	add_action('save_post','delete_academic_open_transients');

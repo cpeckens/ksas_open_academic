@@ -11,7 +11,7 @@
 					<?php if ( has_post_thumbnail()) { ?> 
 						<?php the_post_thumbnail('thumbnail', array('class'	=> "floatleft")); ?>
 					<?php } ?>
-					<blockquote><?php echo get_post_meta($post->ID, 'ecpt_pull_quote', true); ?></blockquote>
+					<?php if (get_post_meta($post->ID, 'ecpt_pull_quote', true)){ ?><blockquote><?php echo get_post_meta($post->ID, 'ecpt_pull_quote', true); ?></blockquote><?php }?>
 				<?php the_excerpt(); ?>
 			</a>
 				<hr>

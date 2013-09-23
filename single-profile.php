@@ -4,7 +4,7 @@
 		<section class="content news">
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 			<h2><?php the_title(); ?></h2>
-			<p class="lead"><?php echo get_post_meta($post->ID, 'ecpt_pull_quote', true); ?></p>
+			<p class="lead"><?php if( get_post_meta($post->ID, 'ecpt_pull_quote', true)) { echo get_post_meta($post->ID, 'ecpt_pull_quote', true); } ?></p>
 			<?php if ( has_post_thumbnail()) { ?> 
 				<?php the_post_thumbnail('full', array('class'	=> "floatleft")); ?>
 			<?php } ?>
