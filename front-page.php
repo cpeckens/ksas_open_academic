@@ -8,6 +8,7 @@
 		<?php endwhile; endif; ?>	
 		
 		<?php 
+			$theme_option = flagship_sub_get_global_options();
 			$news_quantity = $theme_option['flagship_sub_news_quantity'];
 			if ( false === ( $news_query = get_transient( 'news_query' ) ) ) {
 				// It wasn't there, so regenerate the data and save the transient
