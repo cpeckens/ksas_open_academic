@@ -26,13 +26,13 @@
 				'menu_class' => 'inline-list hide-for-small', 
 				'fallback_cb' => 'foundation_page_menu', 
 				'container' => 'nav', 
-				'container_class' => 'seven column', 
+				'container_class' => 'six column', 
 				'walker' => new foundation_navigation() ) ); 
 		 ?>
 		<!-- Social Media -->
 		<nav class="two column iconfont hide-for-small" id="social-media">
-			<a href="http://facebook.com/jhuksas" title="Facebook"><span class="icon-facebook"></span></a>
-			<a href="http://vimeo.com/channels/jhuksas" title="Vimeo"><span class="icon-vimeo"></span></a>
+			<a href="http://facebook.com/jhuksas" title="Facebook"><span class="icon-facebook"></span><span class="hide">Facebook</span></a>
+			<a href="http://vimeo.com/channels/jhuksas" title="Vimeo"><span class="icon-vimeo"></span><span class="hide">Vimeo</span></a>
 		</nav>
 		
 		<!-- Copyright and Address -->
@@ -41,7 +41,7 @@
   		</div>
   		<div class="row">
 	  		<div class="four columns centered">
-  				<a href="http://www.jhu.edu"><img src="<?php echo get_template_directory_uri() ?>/assets/images/university.jpg" /></a>
+  				<a href="http://www.jhu.edu" title="Johns Hopkins University homepage"><img src="<?php echo get_template_directory_uri() ?>/assets/images/university.jpg" /></a>
   			</div>
   		</div>
 
