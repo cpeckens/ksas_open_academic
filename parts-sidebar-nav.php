@@ -1,7 +1,7 @@
 	<nav class="three columns hide-for-print pull-nine" role="navigation" id="sidebar"> <!-- Begin Sidebar -->
 		 	<!-- Start Navigation for Sibling Pages -->	
 			<?php 
-				wp_reset_query(); 
+				wp_reset_query();
 				if( is_page() || is_singular() ) { 
 					global $post;
 						$the_id = $post->ID;
@@ -13,10 +13,23 @@
 					        $ancestor_slug = $the_ancestor->post_name;
 					        $ancestor_title = $the_ancestor->post_title;
 				     //If there are no ancestors display a menu of children
-							if (count($ancestors) == 0 && is_front_page() == false || is_page('hammond-society') || is_singular() ||is_page('news-archive')) {
+							if (count($ancestors) >= 1) {	?>						
+							<div class="offset-gutter" id="sidebar_header">
+								<h5 class="grey">Also in <a href="<?php echo $ancestor_url;?>" class="black bold"><?php echo $ancestor_title ?></a></h5>
+							</div>
+							<?php
+								wp_nav_menu( array( 
+									'theme_location' => 'main_nav', 
+									'menu_class' => 'nav', 
+									'container_class' => 'offset-gutter',
+									'submenu' => $ancestor_title,
+									'depth' => 2				
+								));
+							}
+							elseif (count($ancestors) == 0 && is_front_page() == false || is_page('hammond-society') || is_singular() || is_page('news-archive')) {
 								if (is_singular('people')) {
 									$page_name = 'People';
-								} elseif (is_singular('post') || is_page('news-archive') || is_singular('profile') || is_singular('bulletinboard')) { 
+								} elseif (is_singular('post') || is_page('news-archive') || is_singular('bulletinboard') || is_singular('profile')) { 
 									$page_name = 'About';
 								} else {
 									$page_name = $post->post_title;
@@ -33,21 +46,9 @@
 							if (strpos($test_menu,'<li id') !== false) : echo $test_menu; endif;
 						}
 				        //If there are one or more display a menu of siblings
-							elseif (count($ancestors) >= 1) {	?>						
-							<div class="offset-gutter" id="sidebar_header">
-								<h5 class="grey">Also in <a href="<?php echo $ancestor_url;?>" class="black bold"><?php echo $ancestor_title ?></a></h5>
-							</div>
-							<?php
-								wp_nav_menu( array( 
-									'theme_location' => 'main_nav', 
-									'menu_class' => 'nav', 
-									'container_class' => 'offset-gutter',
-									'submenu' => $ancestor_title,
-									'depth' => 2				
-								));
-							}
+				
+										
 			} 
-			
 			else { ?>
 				<div class="offset-gutter" id="sidebar_header">
 					<h5 class="grey">Also in <span class="black bold">About</span></h5>
@@ -61,6 +62,7 @@
 									'depth' => 2				
 								));
 				}
+			
 			?>
 			
 		<!-- End Navigation for Sibling Pages -->
