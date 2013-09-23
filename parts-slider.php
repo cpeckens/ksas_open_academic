@@ -7,7 +7,7 @@
 	} 	
 	if ( $slider_query->have_posts() ) :
 ?>
-<div class="<?php while ($slider_query->have_posts()) : $slider_query->the_post(); echo get_post_meta($post->ID, 'ecpt_slidecolor', true); endwhile; ?> hide-for-mobile">
+<div class="blueslide hide-for-mobile">
 <div class="row">
 <div id="slider" class="no-gutter">
 <?php endif; ?>
