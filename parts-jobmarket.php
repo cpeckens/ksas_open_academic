@@ -1,9 +1,10 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<div class="row">
 			<div class="four columns">
 				<?php if ( has_post_thumbnail()) { ?> 
 						<?php the_post_thumbnail('full'); ?>
 					<?php } ?>			    
-					<h4><?php the_title() ?></h4>
+					
 			    <h6><?php echo get_post_meta($post->ID, 'ecpt_position', true); ?></h6>
 			
 			    <p class="listing">
@@ -41,59 +42,13 @@
 			    	<?php endif; ?>
 			    </p>
 			</div>
-
-			<dl class="tabs mobile eight columns">
-				<?php if ( get_post_meta($post->ID, 'ecpt_bio', true) ) : ?><dd class="active"><a href="#bio">Biography</a></dd><?php endif; ?>
-				
-				<?php if ( get_post_meta($post->ID, 'ecpt_research', true) ) : ?><dd><a href="#research">Research</a></dd><?php endif; ?>
-				
-				<?php if ( get_post_meta($post->ID, 'ecpt_teaching', true) ) : ?><dd><a href="#teaching">Teaching</a></dd><?php endif; ?>
-				
-				<?php if ( get_post_meta($post->ID, 'ecpt_publications', true) || get_post_meta($post->ID, 'ecpt_microsoft_id', true) || get_post_meta($post->ID, 'ecpt_google_id', true)) : ?><dd><a href="#publications">Publications</a></dd><?php endif; ?>
-				
-				<?php if ( get_post_meta($post->ID, 'ecpt_extra_tab_title', true) ) : ?><dd><a href="#extra"><?php echo get_post_meta($post->ID, 'ecpt_extra_tab_title', true); ?></a></dd><?php endif; ?>
-				
-				<?php if ( get_post_meta($post->ID, 'ecpt_extra_tab_title2', true) ) : ?><dd><a href="#extra2"><?php echo get_post_meta($post->ID, 'ecpt_extra_tab_title2', true); ?></a></dd><?php endif; ?>			  
-			</dl>
-			
-			<ul class="tabs-content eight columns">				
-			<?php if ( get_post_meta($post->ID, 'ecpt_bio', true) ) : ?>
-					<li class="active" id="bioTab">
-						<?php echo get_post_meta($post->ID, 'ecpt_bio', true); ?>
-					</li>
-				<?php endif; ?>
-				
-				<?php if ( get_post_meta($post->ID, 'ecpt_research', true) ) : ?>
-					<li id="researchTab"><?php echo get_post_meta($post->ID, 'ecpt_research', true); ?></li>
-				<?php endif; ?>
-				
-				<?php if ( get_post_meta($post->ID, 'ecpt_teaching', true) ) : ?>
-					<li id="teachingTab"><?php echo get_post_meta($post->ID, 'ecpt_teaching', true); ?></li>
-				<?php endif; ?>
-				
-				<?php if ( get_post_meta($post->ID, 'ecpt_publications', true) || get_post_meta($post->ID, 'ecpt_microsoft_id', true) || get_post_meta($post->ID, 'ecpt_google_id', true) ) : ?>
-					<li id="publicationsTab">
-						<?php if ( get_post_meta($post->ID, 'ecpt_publications', true) ) : echo get_post_meta($post->ID, 'ecpt_publications', true); endif; ?>
-						<?php if ( get_post_meta($post->ID, 'ecpt_microsoft_id', true) ) : ?>
-							<?php $author_id = get_post_meta($post->ID, 'ecpt_microsoft_id', true); ?>
-							<div id="LibraInsideDiv" class="libra">[Loading...]</div>
-							<script language="javascript">
-							    g_libraBase="http://academic.research.microsoft.com/";
-							    g_authorID=<?php echo $author_id;?>;
-							    g_showMask=5;g_orderBy=0;g_topN=20;g_showStyle="LibraStyle";g_content=2;g_ws_head="http://academic.research.microsoft.com/";
-							</script>
-							<script language="javascript" id="insideJs" src="http://academic.research.microsoft.com/LibraInside?js&infos=<?php echo $author_id; ?>|5|0|20"></script>						
-						<?php endif; ?>
-						<?php if ( get_post_meta($post->ID, 'ecpt_google_id', true) ) : locate_template('parts-google-scholar.php', true, false); endif; ?>
-					</li>
-				<?php endif; ?>
-				
-				<?php if ( get_post_meta($post->ID, 'ecpt_extra_tab', true) ) : ?>
-					<li id="extraTab"><?php echo get_post_meta($post->ID, 'ecpt_extra_tab', true); ?></li>
-				<?php endif; ?>
-				
-				<?php if ( get_post_meta($post->ID, 'ecpt_extra_tab2', true) ) : ?>
-					<li id="extra2Tab"><?php echo get_post_meta($post->ID, 'ecpt_extra_tab2', true); ?></li>
-				<?php endif; ?>			
-			</ul>
+			<div class="eight columns">
+				<h2><?php the_title() ?></h2>	
+								  <p><?php if ( get_post_meta($post->ID, 'ecpt_thesis', true) ) : ?><strong>Thesis Title:</strong>&nbsp;"<?php echo get_post_meta($post->ID, 'ecpt_thesis', true); ?>"<?php endif; ?>
+								  <?php if ( get_post_meta($post->ID, 'ecpt_job_abstract', true) ) : ?>&nbsp;- <a href="<?php echo get_post_meta($post->ID, 'ecpt_job_abstract', true); ?>">Download Abstract</a> (PDF)<?php endif; ?></p>
+								  <?php if (get_post_meta($post->ID, 'ecpt_fields', true)) : ?><p><strong>Fields:</strong>&nbsp;<?php echo get_post_meta($post->ID, 'ecpt_fields', true); ?></p><?php endif; ?>
+								  <?php if (get_post_meta($post->ID, 'ecpt_fields', true)) : ?><p><strong>Main Advisor:</strong>&nbsp;<?php echo get_post_meta($post->ID, 'ecpt_advisor', true); ?></p><?php endif; ?>
+								  <?php echo get_post_meta($post->ID, 'ecpt_job_research', true); ?>
+			</div>
+			</div>
 			<?php endwhile; endif; ?>

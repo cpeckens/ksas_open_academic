@@ -35,6 +35,7 @@ if ( false === ( $job_market_query = get_transient( 'job_market_query' ) ) ) {
 					<div class="row">
 						<div class="eleven columns">
 							<div class="row">
+							<a href="<?php the_permalink(); ?>">
 							<?php if ( has_post_thumbnail()) { ?> 
 								<?php the_post_thumbnail('directory', array('class' => 'padding-five floatleft hide-for-small')); ?>
 							<?php } ?>			    
@@ -61,7 +62,7 @@ if ( false === ( $job_market_query = get_transient( 'job_market_query' ) ) ) {
 						<p><?php if ( get_post_meta($post->ID, 'ecpt_thesis', true) ) : ?><b>Thesis Title: </b>"<?php echo get_post_meta($post->ID, 'ecpt_thesis', true); ?>"<?php endif; ?><?php if ( get_post_meta($post->ID, 'ecpt_job_abstract', true) ) : ?>&nbsp;- <a href="<?php echo get_post_meta($post->ID, 'ecpt_job_abstract', true); ?>">Download Abstract (PDF)</a><?php endif; ?></p>
 						<?php if ( get_post_meta($post->ID, 'ecpt_advisor', true) ) : ?><p><b>Main Advisor: </b><?php echo get_post_meta($post->ID, 'ecpt_advisor', true); ?></p><?php endif; ?>
 						<?php if ( get_post_meta($post->ID, 'ecpt_fields', true) ) : ?><p><b>Fields: </b><?php echo get_post_meta($post->ID, 'ecpt_fields', true); ?></p><?php endif; ?>
-
+						</a>
 						</div>
 					</div>
 				</li>
