@@ -139,6 +139,7 @@ function delete_academic_open_transients($post_id) {
 			delete_transient('research_people_query');
 			delete_transient('staff_people_query');
 			delete_transient('emeriti_people_query');
+			delete_transient('job_market_query');
 		break;
 		
 		case 'post' :
@@ -157,6 +158,9 @@ function delete_academic_open_transients($post_id) {
 			delete_transient('ksas_course_grad_query');
 			delete_transient('ksas_course_undergrad_query');
 		break;
+		case 'bulletinboard' :
+			delete_transient('ksas_bb_undergrad_query');
+			delete_transient('ksas_bb_grad_query');
 	}
 }
 	add_action('save_post','delete_academic_open_transients');
