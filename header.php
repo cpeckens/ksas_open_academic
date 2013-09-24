@@ -1,14 +1,8 @@
 <!DOCTYPE html>
-
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title><?php create_page_title(); ?></title>
   <link rel="shortcut icon" href="<?php echo get_template_directory_uri() ?>/assets/images/favicon.ico" />
@@ -32,6 +26,8 @@
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+    <script src="<?php echo get_template_directory_uri() ?>/assets/javascripts/lte-ie7.js"></script>
   <![endif]-->
   <?php include_once("parts-analytics.php"); ?>
 </head>
@@ -39,7 +35,7 @@
 <body <?php body_class(); ?>>
 	<header class="black_bg">
 		<div class="row show-for-small">
-			<div class="four columns centered blue_bg">
+			<div class="four columns centered black_bg">
 			<div class="mobile-logo centered"><a href="<?php echo network_site_url(); ?>">Home</a></div>
 			<h2 class="white" align="center"><?php echo get_bloginfo( 'title' ); ?></h2>
 			</div>
