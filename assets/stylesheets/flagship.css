@@ -873,8 +873,8 @@ ul.breadcrumbs a {
 }
 
 #logo_nav li.logo {
-	background:#000;
-	background:rgba(0,0,0,.75);
+	background:#242424;
+	background:rgba(0,0,0,.25);
 }
 
 .mobile-logo a {
@@ -1601,6 +1601,16 @@ ___________________________________________________________*/
 
 }
 
+.category-120 .fc-event-skin,
+.fc-event-skin.category-120 { /* Job Market */
+	background-color: #606060; 
+	border-color: #606060;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+
+}
+
 
 .macro {
 	background-color: #c4a41d;
@@ -1629,6 +1639,11 @@ ___________________________________________________________*/
 
 .other {
 	background-color: #3366cc;
+	color:#FFFFFF;
+}
+
+.job-market {
+	background-color: #606060;
 	color:#FFFFFF;
 }
 
@@ -2182,7 +2197,7 @@ a.meanmenu-reveal {
 	float:left;
 	width:100%;
 	position:fixed;
-	background:#000;
+	background:#3478b6;
 	padding:4px 0;
 	min-height:50px;
 	z-index:999999;
@@ -2438,11 +2453,7 @@ a.meanmenu-reveal {
 	#quicklinks li.has-flyout {
 		width:100%;
 	}
-	
-	.mean-container .mean-bar {
-		background:#000;
-	}
-	
+		
 	#logo_nav {
 		margin-top:0;
 	}
