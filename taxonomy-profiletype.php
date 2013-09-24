@@ -1,9 +1,14 @@
 <?php get_header(); ?>
 <div class="row sidebar_bg radius10" id="page">
 	<div class="nine columns wrapper radius-left offset-topgutter push-three">	
-		<?php locate_template('parts-nav-breadcrumbs.php', true, false); ?>
 		<section class="content">
-		<h2>Profiles</h2>
+		<?php if(is_tax('profiletype', 'spotlight')){ ?>
+		<h2>Spotlights</h2>
+		<?php } elseif(is_tax('profiletype', 'undergraduate-profile')){ ?>
+		<h2>Undergraduate Profiles</h2>
+		<?php } elseif(is_tax('profiletype', 'graduate-profile')){ ?>
+		<h2>Graduate Profiles</h2>
+		<?php } ?>
 		<?php while ( have_posts()) : the_post(); ?>
 			<a href="<?php the_permalink(); ?>">	
 				
