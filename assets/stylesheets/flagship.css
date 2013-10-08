@@ -51,7 +51,7 @@ p {
 
 .content img,
 #widget img {
-	border: solid #f1f1f1 9px;
+	border: solid #f1f1f1 5px;
 	-webkit-box-shadow: -3px 3px 5px rgba(50, 50, 50, 0.5);
 	-moz-box-shadow:    -3px 3px 5px rgba(50, 50, 50, 0.5);
 	box-shadow:         -3px 3px 5px rgba(50, 50, 50, 0.5);
@@ -142,16 +142,16 @@ hr {
 	color:#FFF;
 }
 
-.black {
-	color:#333;
-}
 
 .sky_blue {
-	color:#69c;
+	color:#00337f;
 }
 
-.blue {
-	color:#00337f;
+.blue, #sidebar a {
+	color:#039;
+}
+.black {
+	color:#333 !important;
 }
 
 .grey {
@@ -450,11 +450,13 @@ p.lead,.lead {
 
 ul[data-clearing] li {
 	float:left;
-	border:#ccc solid 3px;
 	margin:7px;
 	max-width:75px;
 }
 
+.clearing-assembled .clearing-container ul[data-clearing] li {
+	max-width: none;
+}
 .gallery-item img {
 	max-width: 100% !important;
 }
@@ -1257,6 +1259,9 @@ ul.nav ul.sub-menu {
 }
 
 /******* Home ************/
+.homepage_bg .wp-post-image {
+	max-width: 105px;
+}
 .four.columns .video_thumb .icon-play:before {
 	top:23%;
 	left:36%;
@@ -1601,8 +1606,8 @@ ___________________________________________________________*/
 
 }
 
-.category-120 .fc-event-skin,
-.fc-event-skin.category-120 { /* Job Market */
+.category-1212 .fc-event-skin,
+.fc-event-skin.category-1212 { /* Job Market */
 	background-color: #606060; 
 	border-color: #606060;
 	-moz-border-radius: 3px;
