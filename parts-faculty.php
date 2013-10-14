@@ -73,7 +73,7 @@
 				<?php if ( get_post_meta($post->ID, 'ecpt_teaching', true) ) : ?><dd><a href="#teaching">Teaching</a></dd><?php endif; ?>
 				
 				<?php if ( get_post_meta($post->ID, 'ecpt_publications', true) || get_post_meta($post->ID, 'ecpt_microsoft_id', true) || get_post_meta($post->ID, 'ecpt_google_id', true)) : ?><dd><a href="#publications">Publications</a></dd><?php endif; ?>
-				
+				<?php if ( get_post_meta($post->ID, 'ecpt_books_cond', true) == 'on' ) : ?><dd><a href="#books">Books</a></dd><?php endif; ?>
 				<?php if ( get_post_meta($post->ID, 'ecpt_extra_tab_title', true) ) : ?><dd><a href="#extra"><?php echo get_post_meta($post->ID, 'ecpt_extra_tab_title', true); ?></a></dd><?php endif; ?>
 				
 				<?php if ( get_post_meta($post->ID, 'ecpt_extra_tab_title2', true) ) : ?><dd><a href="#extra2"><?php echo get_post_meta($post->ID, 'ecpt_extra_tab_title2', true); ?></a></dd><?php endif; ?>			  
@@ -110,7 +110,7 @@
 						<?php if ( get_post_meta($post->ID, 'ecpt_google_id', true) ) : locate_template('parts-google-scholar.php', true, false); endif; ?>
 					</li>
 				<?php endif; ?>
-				
+				<?php if ( get_post_meta($post->ID, 'ecpt_books_cond', true) == 'on' ) : locate_template('parts-faculty-books.php', true, false); endif;?>
 				<?php if ( get_post_meta($post->ID, 'ecpt_extra_tab', true) ) : ?>
 					<li id="extraTab"><?php echo get_post_meta($post->ID, 'ecpt_extra_tab', true); ?></li>
 				<?php endif; ?>
