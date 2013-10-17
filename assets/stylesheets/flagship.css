@@ -2085,6 +2085,7 @@ div.orbit img.fluid-placeholder {
 }
 
 .icon-arrow-right:before {
+	margin-left: 3px;
 	content:"\e01c";
 }
 
@@ -2337,6 +2338,13 @@ a.meanmenu-reveal {
 	width:100%;
 	padding:0;
 	margin:0;
+}
+
+#fields_search input[type="submit"], 
+#fields_search input[type="text"], 
+#search-bar input[type="submit"] { 
+border-radius: 0 !important; 
+-webkit-appearance: none; 
 }
 
 @media only screen and (max-width: 1024px) {
