@@ -9,6 +9,7 @@ Template Name: Calendar - WP
 		<?php locate_template('parts-nav-breadcrumbs.php', true, false); ?>	
 		<section class="content">
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<p align="right"><a href="<?php echo site_url(); ?>/feed/ical?categories=<?php echo get_post_meta($post->ID, 'cal_cats', true); ?>"class="button">Subscribe to <?php the_title(); ?></a></p>
 			<?php if (!is_handheld()) {
 			function render_calendar($atts) {
 				global $post;
