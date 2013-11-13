@@ -34,7 +34,7 @@ Template Name: Courses - Undergraduate
 			<div class="title">
 				<h5><?php the_title(); ?>
 				<?php if ( get_post_meta($post->ID, 'ecpt_credit', true) ) : ?>
-					&nbsp;(<?php echo get_post_meta($post->ID, 'ecpt_credits', true); ?> Credits)
+					&nbsp;(<?php echo get_post_meta($post->ID, 'ecpt_credit', true); ?> credits)
 				<?php endif; ?></h5>
 			</div>
 			<div class="content course">
