@@ -1812,6 +1812,20 @@ li.person {
 	padding:0;
 }
 
+#directory li.job-market-candidate p {
+	margin-top: 0px;	
+	margin-left: 105px;
+}
+
+#directory li.job-market-candidate p.contact {
+	margin-bottom: 17px;
+	line-height: 2em;
+}
+
+#directory li.job-market-candidate img {
+	margin-bottom: 
+}
+
 li.person.sub-head h2 {
 	text-decoration:underline;
 	font-size:28px;
